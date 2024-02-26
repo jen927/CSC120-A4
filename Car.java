@@ -2,21 +2,16 @@ import java.util.ArrayList;
 
 public class Car {
     // attributes
-    ArrayList passengers;
+    ArrayList<Passenger> passengers;
     int maxPassengers;
+    String Passenger;
 
     //constuctor
-    //  a constructor, which takes in an initial value
-    //  for the `Car`'s maximum capacity and
-    //  initializes an appropriately-sized `ArrayList`
     public Car(int maxPassengers) {
-        ArrayList<String> passengers = new ArrayList<String>();
+        ArrayList<Passenger> passengers = new ArrayList<Passenger>(maxPassengers);
         this.maxPassengers = maxPassengers;
     }
-    // accessor-like methods `public int getCapacity()`
-    // and `public int seatsRemaining()`
-    // that return the maximum capacity and
-    // remaining seats, respectively
+    
     public int getCapacity() {
         return maxPassengers;
     }
@@ -25,6 +20,34 @@ public class Car {
         return maxPassengers - passengers.size();
     }
 
-    
+    public boolean addPassenger(Passenger p) {
+        if (passengers.size() < maxPassengers)  {
+            passengers.add(p);
+            return true;
+        }
+        else {
+            return false;
+        } 
+    }
+
+    public boolean removePassenger(Passenger p) {
+        if (passengers.contains(p)) {
+            passengers.remove(p);
+            return true;
+        }
+        else {
+            return passengers.contains(p);
+        }
+    }
+    public void printManifest() {
+        if (passengers.size() > 0) {
+            for (Passenger i : passengers) {
+                System.out.println(i);
+            }
+        }
+        else {
+            System.out.println("This car is EMPTY.");
+        }
+    }
 
 }
