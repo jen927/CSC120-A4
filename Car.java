@@ -9,7 +9,7 @@ public class Car {
     //constuctor
     public Car(int maxPassengers) {
         ArrayList<Passenger> passengers = new ArrayList<Passenger>(maxPassengers);
-        this.maxPassengers = maxPassengers;
+        this.passengers = passengers;
     }
     
     public int getCapacity() {
